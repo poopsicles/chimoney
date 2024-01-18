@@ -24,3 +24,5 @@ tokio = { version = "1.35.1", features = ["macros"] }
 pedantic = "warn"
 nursery = "warn"
 unwrap_used = "deny"
+module_name_repetitions = "allow"
+

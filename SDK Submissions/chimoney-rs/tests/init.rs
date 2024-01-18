@@ -6,11 +6,9 @@ use std::env;
 async fn ping_sandbox_works() {
     dotenv().ok();
 
-    let client = ChimoneyClient::sandbox(
-        env::var("CHIMONEY_API_KEY")
-            .expect("unable to read key from environment")
-            .as_str(),
-    );
+    let api_key = env::var("CHIMONEY_API_KEY").expect("unable to read key from environment");
+
+    let client = ChimoneyClient::sandbox(&api_key);
 
     let res = client.ping().await.expect("unable to ping API");
 
