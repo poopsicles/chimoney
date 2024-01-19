@@ -17,7 +17,20 @@ pub struct GoodResponse<T> {
 #[derive(Debug, Deserialize)]
 pub struct ErrorResponse {
     pub status: String,
+    pub error: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct MessageResponse {
     pub message: String,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(untagged)]
+pub enum ResponseEnum<T> {
+    Good(GoodResponse<T>),
+    Error(ErrorResponse),
+    Message(MessageResponse),
 }
 
 pub type AirtimeCountriesResponse = Vec<String>;
