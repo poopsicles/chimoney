@@ -15,5 +15,6 @@ async fn info_airtime_countries_works() {
         .await
         .expect("unable to get airtime countries");
 
+    println!("{res:?}");
     assert!(!res.is_empty());
 }
